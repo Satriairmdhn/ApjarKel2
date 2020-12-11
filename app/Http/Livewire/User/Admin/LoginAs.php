@@ -21,6 +21,7 @@ class LoginAs extends Component
 
         if($this->search != null){
             $users = User::where('name','like', '%'.$this->search.'%')
+
             ->orWhereHas('faculty', function($query){
                 $query->where('first_name','like', '%'.$this->search.'%');
             })
@@ -32,6 +33,15 @@ class LoginAs extends Component
         }
 
         return view('livewire.user.admin.login-as', compact('users'));
+    }
+
+    public function loginAs($user_id){
+        //$user = User::where('id', $user_id)->first();
+
+        $user = User::where('id', $user_id)->firstorfail();
+        Auth::login($user);
+        toast('Login as '.$user->name.'-'.$user->roles->first()->display_name.'ssuccess','success');
+        return redirect('/');
 
     }
 

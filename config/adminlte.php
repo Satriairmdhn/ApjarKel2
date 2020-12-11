@@ -234,7 +234,17 @@ return [
 
         [ 'text' =>'Login As',
           'route' => 'apjar.user.admin.login-as',
-          'icon'        => 'far fa-fw fa-user',
+          'icon'  => 'far fa-fw fa-user',
+        ],
+
+        [ 'text' =>'Refresh Login',
+          'route' => 'apjar.user.refresh-login',
+          'icon'  => 'far fa-fw fa-user',
+        ],
+
+        [ 'text' =>'Assign role',
+          'route' => 'apjar.user.admin.assign-role',
+          'icon'  => 'far fa-fw fa-user',
         ],
 
         /*[

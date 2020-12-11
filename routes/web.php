@@ -27,4 +27,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  */
 //Login-as
 Route::get('/user/admin/login-as', [App\Http\Controllers\UserController::class, 'loginAs_Admin'])->name('apjar.user.admin.login-as');
+Route::get('/user/refresh=login', [App\Http\Controllers\UserController::class, 'refreshLogin_User'])->name('apjar.user.refresh-login');
+Route::get('/user/admin/assign-role', [App\Http\Controllers\UserController::class, 'assignRole_Admin'])->name('apjar.user.admin.assign-role');
 

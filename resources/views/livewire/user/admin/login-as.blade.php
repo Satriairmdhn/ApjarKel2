@@ -10,8 +10,8 @@
                 <tr>
 
                     <th width="5%">No</th>
-                    <th width="20%">SSO</th>
-                    <th width="25%">Username</th>
+                    <th width="20%">Username</th>
+                    <th width="25%">SSO</th>
                     <th width="40%">Identity</th>
 
                     <th class="text-right" width="15%">Action</th>
@@ -35,8 +35,9 @@
 
                         </td>
 
+
                         <td class="text-right">
-                            <button wire:click="loginAs({{ $user->id }})" class="btn btn-sm btn-warning">Login As</button>
+                            <button wire:click="loginAs({{ $user->id }})" class="btn btn-sm btn-warning"><i class="fa fa-user fa-xs" style ="color:black" aria-hidden="true"></i> Login As</button>
                         </td>
                     </tr>
                @empty
