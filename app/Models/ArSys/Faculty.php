@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Apjar;
+namespace App\Models\ArSys;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

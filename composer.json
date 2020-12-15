@@ -18,7 +18,9 @@
         "laravel/ui": "^3.1",
         "livewire/livewire": "^2.3",
         "realrashid/sweet-alert": "^3.1",
-        "santigarcor/laratrust": "^6.3"
+        "santigarcor/laratrust": "^6.3",
+        "subfission/cas": "^4.0.0"
+
     },
     "require-dev": {
         "facade/ignition": "^2.5",

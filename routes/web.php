@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 //use App\Http\Controllers\UserController;
 
+use App\Http\Controllers\ArSys\ArSysController;
+use App\Http\Controllers\ArSys\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,19 +16,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ArSysController::class, 'switch'])->name('arsys.switch')->middleware('cas.auth');
+/*Route::get('/', function () {
     return view('admin-home');
-});
+});*/
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [ArSysController::class, 'home'])->name('arsys.home');
+
+
+
+/**
+ * Redirect from Switch to User
+ */
+
+Route::get('/user/student', [UserController::class, 'student'])->name('arsys.user.student');
+Route::get('/user/faculty', [UserController::class, 'faculty'])->name('arsys.user.faculty');
 
 /**
  * User Administration
  */
 //Login-as
-Route::get('/user/admin/login-as', [App\Http\Controllers\UserController::class, 'loginAs_Admin'])->name('apjar.user.admin.login-as');
-Route::get('/user/refresh=login', [App\Http\Controllers\UserController::class, 'refreshLogin_User'])->name('apjar.user.refresh-login');
-Route::get('/user/admin/assign-role', [App\Http\Controllers\UserController::class, 'assignRole_Admin'])->name('apjar.user.admin.assign-role');
+Route::get('/user/admin/login-as', [UserController::class, 'loginAs_Admin'])->name('apjar.user.admin.login-as');
+Route::get('/user/refresh=login', [UserController::class, 'refreshLogin_User'])->name('apjar.user.refresh-login');
+Route::get('/user/admin/assign-role', [UserController::class, 'assignRole_Admin'])->name('apjar.user.admin.assign-role');
 

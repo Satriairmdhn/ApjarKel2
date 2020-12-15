@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
-use App\Models\Apjar\Student;
-use App\Models\Apjar\Faculty;
+use App\Models\ArSys\Student;
+use App\Models\ArSys\Faculty;
 
 class User extends Authenticatable
 {

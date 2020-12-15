@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Http\Livewire\Apjar\User\Admin;
+namespace App\Http\Livewire\Arsys\User\Admin;
 
 use Livewire\Component;
-use App\Models\User;
-use App\Models\Apjar\Role;
-use App\Models\Apjar\Faculty;
 use Livewire\WithPagination;
 
-class AssignRole extends Component
+use Auth;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\ArSys\Faculty;
+
+class LoginAs extends Component
 {
     public $search;
     use WithPagination;
@@ -17,8 +19,10 @@ class AssignRole extends Component
     public $userID;
     public $modalAssignRole = null;
     public $facultyID;
+
     public function render()
     {
+
         $users = User::orderBy('name', 'ASC')->paginate(10);
 
         $roles = Role::all();
@@ -29,7 +33,9 @@ class AssignRole extends Component
             ->orWhereHas('faculty', function($query){
                 $query->where('first_name','like', '%'.$this->search.'%');
             })
-
+            ->orWhereHas('student', function($query){
+                $query->where('first_name','like', '%'.$this->search.'%');
+            })
             ->orderBy('name', 'ASC')
             ->paginate(10);
         }
@@ -38,7 +44,16 @@ class AssignRole extends Component
             $this->faculty = Faculty::where('id', $this->facultyID)->first();
         }
 
-        return view('livewire.apjar.user.admin.assign-role', compact('users', 'roles'));
+        return view('livewire.arsys.user.admin.login-as', compact('users','roles'));
+    }
+
+    public function loginAs($user_id){
+        //$user = User::where('id', $user_id)->first();
+        //dd('here');
+        $user = User::where('id', $user_id)->firstorfail();
+        Auth::login($user);
+        toast('Login as '.$user->name.'-'.$user->roles->first()->display_name.'success','success');
+        return redirect('/home');
     }
 
     public function assignRole($faculty_id, $user_id){
@@ -60,5 +75,6 @@ class AssignRole extends Component
 
         $user->detachRole($role->name);
     }
+
 
 }

@@ -232,20 +232,20 @@ return [
 
     'menu' => [
 
-        [ 'text' =>'Login As',
-          'route' => 'apjar.user.admin.login-as',
-          'icon'  => 'far fa-fw fa-user',
-        ],
+
 
         [ 'text' =>'Refresh Login',
           'route' => 'apjar.user.refresh-login',
           'icon'  => 'far fa-fw fa-user',
+          'roles' => 'faculty'
         ],
 
-        [ 'text' =>'Assign role',
-          'route' => 'apjar.user.admin.assign-role',
+        [ 'text' =>'Login As',
+          'route' => 'apjar.user.admin.login-as',
           'icon'  => 'far fa-fw fa-user',
+          'roles' => 'admin',
         ],
+
 
         /*[
             'text' => 'search',
@@ -344,13 +344,14 @@ return [
     */
 
     'filters' => [
-        JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
+        //JeroenNoten\LaravelAdminLte\Menu\Filters\GateFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\HrefFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\SearchFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ActiveFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\ClassesFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\LangFilter::class,
         JeroenNoten\LaravelAdminLte\Menu\Filters\DataFilter::class,
+        App\Http\Controllers\ArSys\AdminLTEFilter::class,
     ],
 
     /*

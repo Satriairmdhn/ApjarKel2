@@ -7,10 +7,10 @@
             <div class="card">
 
                 <div class="card-header">
-                    <b>User Administration</b> | Assign role
+                    Faculty Home
                 </div>
                 <div class="card-body">
-                    @livewire('apjar.user.admin.assign-role')
+
                 </div>
             </div>
         </div>

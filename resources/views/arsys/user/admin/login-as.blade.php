@@ -10,7 +10,7 @@
                     <b>User Administration</b> | Login As
                 </div>
                 <div class="card-body">
-                    @livewire('user.admin.login-as')
+                    @livewire('arsys.user.admin.login-as')
                 </div>
             </div>
         </div>

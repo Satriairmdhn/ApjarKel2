@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Apjar;
+namespace App\Models\ArSys;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Student extends Model
 {
-
-    protected $table = 'roles';
     use HasFactory;
+    protected $table ='apjar_student';
 }
