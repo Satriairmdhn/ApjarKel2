@@ -22,10 +22,10 @@ class UserController extends Controller
         $user = Auth::user();
         $faculty = Faculty::where('user_id', $user->id)->get();
         if ($faculty->isEmpty()){
-            return view ('arsys.faculty-home');
+            return view ('Tugas.index');
             //return view ('neoarsys::profile.faculty.no-data');
         }else{
-            return view ('arsys.faculty-home');
+            return view ('Tugas.index');
         }
     }
 

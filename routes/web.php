@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ArSys\ArSysController;
 use App\Http\Controllers\ArSys\UserController;
+use App\Http\Controllers\Tugas\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,3 +43,15 @@ Route::get('/user/admin/login-as', [UserController::class, 'loginAs_Admin'])->na
 Route::get('/user/refresh=login', [UserController::class, 'refreshLogin_User'])->name('apjar.user.refresh-login');
 Route::get('/user/admin/assign-role', [UserController::class, 'assignRole_Admin'])->name('apjar.user.admin.assign-role');
 
+//CRUD
+Route::get('/Tugas',[ProfileController::class, 'index'])->name('Tugas.profile.student');
+Route::get('/Tugas/store',[ProfileController::class, 'store']);
+Route::post('/Tugas/store',[ProfileController::class, 'store']);
+Route::get('/Tugas/id',[ProfileController::class, 'id']);
+
+Route::get('/Tugas/data',[ProfileController::class, 'data'])->name('Tugas.profile.student.data');
+Route::get('/Tugas/data/edit/{id}',[ProfileController::class, 'edit'])->name('Tugas.profile.student.edit');
+Route::post('/Tugas/data/update',[ProfileController::class, 'update']);
+Route::get('/Tugas/data/update',[ProfileController::class, 'update']);
+
+Route::get('/Tugas/data/delete/{id}',[ProfileController::class, 'delete'])->name('Tugas.profile.student.delete');
